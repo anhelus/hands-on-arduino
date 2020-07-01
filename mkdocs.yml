@@ -1,0 +1,5 @@
+site_name: Hands-on Arduino
+nav:
+    - Home: index.md
+    - 01 - Introduzione: 01_introduzione.md
+theme: readthedocs
