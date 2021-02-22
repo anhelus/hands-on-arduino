@@ -1,0 +1,662 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Il progetto GNU - Hands-on Arduino</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gnu-is-not-unix" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Hands-on Arduino" class="md-header-nav__button md-logo" aria-label="Hands-on Arduino">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Hands-on Arduino
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Il progetto GNU
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Hands-on Arduino" class="md-nav__button md-logo" aria-label="Hands-on Arduino">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Hands-on Arduino
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      
+      <label class="md-nav__link" for="nav-2">
+        Open Source e Making
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Open Source e Making" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Open Source e Making
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_hacker/" class="md-nav__link">
+        La cultura hacker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Il progetto GNU
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Il progetto GNU
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#richard-stallman-nascita-di-un-mito" class="md-nav__link">
+    Richard Stallman: nascita di un mito
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-deriva-della-cultura-hacker" class="md-nav__link">
+    La deriva della cultura hacker
+  </a>
+  
+    <nav class="md-nav" aria-label="La deriva della cultura hacker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lalba-del-software-proprietario" class="md-nav__link">
+    L'alba del software proprietario
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#laddio-al-mit" class="md-nav__link">
+    L'addio al MIT
+  </a>
+  
+    <nav class="md-nav" aria-label="L'addio al MIT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#laffaire-xerox" class="md-nav__link">
+    L'affaire Xerox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lisp-machines-inc-e-symbolics" class="md-nav__link">
+    Lisp Machines Inc. e Symbolics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#il-progetto-gnu" class="md-nav__link">
+    Il progetto GNU
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#origini" class="md-nav__link">
+    Origini
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#il-manifesto-gnu" class="md-nav__link">
+    Il manifesto GNU
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_osi.md" class="md-nav__link">
+        L'Open Source Initiative
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_hardware/" class="md-nav__link">
+        L'Open Hardware
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_making/" class="md-nav__link">
+        Il fenomeno del Making
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#richard-stallman-nascita-di-un-mito" class="md-nav__link">
+    Richard Stallman: nascita di un mito
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-deriva-della-cultura-hacker" class="md-nav__link">
+    La deriva della cultura hacker
+  </a>
+  
+    <nav class="md-nav" aria-label="La deriva della cultura hacker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lalba-del-software-proprietario" class="md-nav__link">
+    L'alba del software proprietario
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#laddio-al-mit" class="md-nav__link">
+    L'addio al MIT
+  </a>
+  
+    <nav class="md-nav" aria-label="L'addio al MIT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#laffaire-xerox" class="md-nav__link">
+    L'affaire Xerox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lisp-machines-inc-e-symbolics" class="md-nav__link">
+    Lisp Machines Inc. e Symbolics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#il-progetto-gnu" class="md-nav__link">
+    Il progetto GNU
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#origini" class="md-nav__link">
+    Origini
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#il-manifesto-gnu" class="md-nav__link">
+    Il manifesto GNU
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="gnu-is-not-unix">Gnu (is Not Unix)<a class="headerlink" href="#gnu-is-not-unix" title="Permanent link">&para;</a></h1>
+<h2 id="richard-stallman-nascita-di-un-mito">Richard Stallman: nascita di un mito<a class="headerlink" href="#richard-stallman-nascita-di-un-mito" title="Permanent link">&para;</a></h2>
+<p>Uno dei più importanti contributi alla definizione della cultura dell'open source si deve alla carismatica figura di Richard Stallman, che rappresenta in tutto e per tutto l'archetipo dell'hacker.</p>
+<p>Stallman era un ragazzo prodigio: all'età di 17 anni frequentava il suo primo anno di università ad Harvard, mostrando le sue qualità in corsi come il famigerato <em>Math 55</em>, noto per "condensare" quattro anni di insegnamenti in due soli semestri, e considerato come uno dei corsi di matematica più difficili al mondo (se non <a href="https://www.quora.com/What-is-it-like-to-take-Harvards-Math-55-purported-the-most-difficult-undergraduate-math-class-in-the-country-teaching-four-years-of-math-in-two-semesters">il più difficile</a>).</p>
+<p>Nel 1971, a 18 anni, iniziò a frequentare il MIT, specializzandosi nell'arte della programmazione ed iniziando a frequentare la comunità hacker dell'Istituto di Boston, dove venne conosciuto con il (non troppo originale) nickname di RMS. In seguito, Stallman iniziò a lavorare come ricercatore all'AI Lab, occupandosi di tematiche prevalentemente legate all'intelligenza artificiale e contribuendo, assieme a Gerry Sussman, alla definizione di un <a href="https://www.sciencedirect.com/science/article/abs/pii/0004370277900297">famoso approccio al ragionamento automatico</a>, ancora molto citato al giorno d'oggi.</p>
+<h2 id="la-deriva-della-cultura-hacker">La deriva della cultura hacker<a class="headerlink" href="#la-deriva-della-cultura-hacker" title="Permanent link">&para;</a></h2>
+<h3 id="lalba-del-software-proprietario">L'alba del software proprietario<a class="headerlink" href="#lalba-del-software-proprietario" title="Permanent link">&para;</a></h3>
+<p>Stallman era anche noto per la sua forte ostilità alle restrizioni che venivano poste all'accesso alla conoscenza: Richard voleva che i computer del MIT fossero sempre disponibili a chiunque, ed arrivò perfino ad architettare un sistema per decifrare le password degli utenti, i quali venivano poi avvertiti da Stallman, che gli invitava contestualmente a sostituirle con stringhe vuote, permettendo quindi l'accesso a chiunque al computer; purtroppo, il suo avviso venne seguito soltanto da un quinto degli utenti del laboratorio.</p>
+<p>Questo atteggiamento lo rendeva una sorta di "paladino" di quelli che abbiamo già visto fossero i "principi" alla base della cultura hacker che, verso la fine degli anni '70, iniziava a frammentarsi sotto i colpi di un ben noto colpevole: il <em>profitto</em>. La maggior parte dei produttori di computer, infatti, aveva smesso di distribuire il codice sorgente dei propri software, principalmente per evitare che venissero copiati sui computer della concorrenza. Si iniziò inoltre a diffondere l'uso di licenze particolarmente restrittive, allo scopo di proebire, o quantomeno limitare, la copia e distribuzione del software proprietario, che stava pian piano diventando la norma.</p>
+<p>Stallman prese ferocemente posizione contro questa tendenza, arrivando a definire l'utilizzo delle cosiddette <em>time-bombs</em> (ovvero delle funzioni che, in base al tempo di utilizzo, erano in grado di disattivare il software, esattamente come accade per i free trial odierni) un <a href="https://archive.org/details/freeasinfreedomr00will">"crimine contro l'umanità"</a>. Ovviamente, come chiarì egli stesso in un'intervista del 2008, il crimine non era ricevere un corrispettivo monetario per una prestazione, ma il bloccare l'accesso ad un software ed alla conoscenza derivante.</p>
+<h3 id="laddio-al-mit">L'addio al MIT<a class="headerlink" href="#laddio-al-mit" title="Permanent link">&para;</a></h3>
+<h4 id="laffaire-xerox">L'affaire Xerox<a class="headerlink" href="#laffaire-xerox" title="Permanent link">&para;</a></h4>
+<p>Nel 1980, Stallman si vide revocare, assieme ad altri membri dell'AI Lab, l'accesso al sorgente del software di una stampante laser Xerox 9700 appena acquistata dal laboratorio. Il problema era decisamente serio: la stampante era collocata in un ambiente diverso da quello dove si trovavano i suoi utenti, che quindi non potevano sapere se le loro stampe fossero state completate, o se si fosse verificato qualche problema. Per ovviarvi, il software della precedente stampante era stato modificato da Stallman, in maniera che fossero inviati degli appositi messaggi agli utenti indicanti il termine di una stampa o l'insorgenza di problemi più o meno seri. Ciò non era però possibile con la nuova stampante, in quanto il codice non era disponibile. Questo disagio contribuì a rafforzare in Stallman l'idea della necessità dell'accesso al codice sorgente del software utilizzato.</p>
+<h4 id="lisp-machines-inc-e-symbolics">Lisp Machines Inc. e Symbolics<a class="headerlink" href="#lisp-machines-inc-e-symbolics" title="Permanent link">&para;</a></h4>
+<p>Nello stesso periodo, i membri dell'AI Lab crearono la prima Lisp Machine, un computer general-purpose progettato per eseguire in maniera efficiente programmi basati su Lisp. </p>
+<p>Nello stesso periodo, un altro membro dell'AI Lab, Richard Greenblatt, aveva fondato la <em>Lisp Machine Inc.</em>, per commercializzare le idee ed i prototipi che lui e Tom Knight avevano realizzato in laboratorio. Greenblatt non credeva negli investimenti esterni: pensava infatti che i proventi dell'attività commerciale dovessero essere reinvestiti in ricerca e sviluppo, permettendo una crescita costante dell'azienda; di contro, altri membri dell'AI Lab pensavano che affidarsi ai fondi provenienti da società esterne fosse un approccio più sicuro e, non riuscendo a raggiungere un accordo con Greenblatt, decisero di fondare <em>Symbolics</em>. Symbolics riuscì a recrutare la maggior parte dei membri dell'AI Lab, facendo anche in modo che Greenblatt non potesse più citare in alcun modo il MIT. Entrambe le compagnie producevano software proprietario: tuttavia, Stallman si schierò contro Symbolics, dato che LMI non aveva tentato di "colpire"</p>
+<p>Richard Greenblatt, un altro hacker all'AI Lab, aveva fondato la società Lisp Machines Inc. per mettere sul mercato le macchine Lisp, che lui e Tom Knight avevano progettato in laboratorio. Greenblatt respingeva investimenti esterni, credendo che il processo di costruzione e vendita di alcune macchine potesse essere reivestito con profitto nella crescita della compagnia. Di contro, gli altri hacker pensavano che l'approccio basato sugli investitori fosse migliore. Dato che on si riusciva a raggiungere un accordo, gli altri hacker fondarono Symbolics, con l'aiuto di Russ Noftsker, un amministratore dell'AI Lab. Symbolics recrutò la maggiro parte degli hacker rimanenti, incluso Bill Gosper, che quindi lasciò l'API Lab. Symbolics forzò anche Greenblatt a smettere di citare le policy del MIT. Anche se entrambe le compagnie fornivano software proprietario, Stallman credeva che LMI, a differenza di Symbolic, aveva provato ad evitare di "colpire" la comunità del lab. Per due anni, dal 1982 fino alla fine del 1983, Stallman lavorò da solo per clonare l'output dei programmatori di Symbolics, con l'obiettivo di prevenire a questi di ottenere un monopolio sui computer del laboratorio.</p>
+<p>Uno degli argomenti principali di Stallman era che gli utilizzatori del software dovrebbero avere la libertà di condividerlo con i loro vicini ed essere in grado di studiare e fare cambi al softawre che usano, affermava inoltre che i venditori di software compivano atti antisociali e non etici. La frase <em>software wants to be free</em> è spesso attribuita non correttaemtne a lui, e Stallman afferma che questo sia un'interpretazione non buona della sua filosofia. Uno dei suoi punti di vista era che la libertà è vitale per la libertà degli utenti e della società come valore morale, e non solamente per ragioni pragmatiche come la possiblità di sviluppare software tecnicamente superiore. Eric S. Rayomnd, uno dei creatori del movimento open-source, diceva però che gli argomenti morali, piuttosto che quelli pragmatici, alienano potenziali alleati e colpiscono il fine di rimuovere la secretezza nel codice.</p>
+<p>Nel febbraio 1984, Stallman lasciò il suo lavoro al MIT per lavorare a tempo pieno sul progetto GNU, che aveva annunciato nel settembre del 1983. Da quel momento, rimane affiliato con il mIT come visiting scientist non pagato al Computer Science and Artificial Intelligence Laboratory. Fino al '98, aveva mantenuto un ufficio al MIT.</p>
+<h3 id="il-progetto-gnu">Il progetto GNU<a class="headerlink" href="#il-progetto-gnu" title="Permanent link">&para;</a></h3>
+<h3 id="origini">Origini<a class="headerlink" href="#origini" title="Permanent link">&para;</a></h3>
+<p>Richard Stallman annunciò il suo intento di iniziare a lavorare sul progetto GNU in un messaggio Usenet nel settembre del 1983, che è possibile ritrovare <a href="https://www.gnu.org/gnu/initial-announcement.en.html">qui</a>.</p>
+<p>Nel messaggio, Stallman annunciava la sua volontà di creare il progetto GNU (Gnu's Not Unix), e renderlo disponibile a chiunque fosse in grado di utilizzarlo:</p>
+<div class="admonition quote">
+<p class="admonition-title">Richard Stallman sul progetto GNU:</p>
+<p><em>Starting this Thanksgiving, I am going to write a complete Unix-compatible software system called GNU (for Gnu's Not Unix), and give it away free to everyone who can use it.</em></p>
+</div>
+<p>Richard indicava anche il motivo alla base della creazione del progetto:</p>
+<div class="admonition quote">
+<p class="admonition-title">Il perché del progetto GNU:</p>
+<p><em>I consider that the golden rule requires that if I like a program I must share it with other people who like it. [...]<br />
+I have decided to put together a sufficient body of free software so that I will be able to get along without any software that is not free.</em></p>
+</div>
+<p>Quando GNU venne iniziato, aveva un editor testuale Emacs per Lisp per scrivere comandi, un debugger di codice sorgente, un parser generator compatibile con yacc, ed un linker. Il sistema GNU richiedeva che il compilatore C ed i tool che venivano utilizzati fossero liberi, per cui anche questi furono sviluppati. Per giugno 1987, il progetto aveva accumulato e sviluppato un assembler open source, quasi terminato un compilatore C (GCC), un editor (GNU Emacs) e diverse utility (come ls, grep, awk, make ed ld). Era anche presente un kernel iniziale, che però aveva bisogno di ulteriori aggiornamenti.</p>
+<p>Una volta che il kernel ed il compilatore furono terminati, GNU fu in grado di essere usata per lo sviluppo software. L'obiettivo principale era creare molte altre applicazioni simili al sistema Unix. GNU era in grado di eseguire programmi Unix, ma non era identica a questo. Incorporava dei nomi dei file più lunghi, numeri di versione dei file, ed un file system a prova di crash. Il manifesto GNU venne scritto per ottenere supporto e partecipazione esterna al progetto. I programmatori furono incoraggiati a prendere parte ad ogni aspetto del progetto che li interessava. Le persone potevano donare fondi, parti di computer, o anche il loro tempo per scrivere codice e programmi per il progetto.</p>
+<p>Le origini e lo sviluppo della maggior parte degli aspetti del progetto GNU (e del free software in generale) è possibile ritrovarli nell'help di Emacs.</p>
+<p>C-h g</p>
+<h2 id="il-manifesto-gnu">Il manifesto GNU<a class="headerlink" href="#il-manifesto-gnu" title="Permanent link">&para;</a></h2>
+<h1 id="free-software-foundation">Free Software Foundation<a class="headerlink" href="#free-software-foundation" title="Permanent link">&para;</a></h1>
+<h2 id="la-free-software-foundation-fsf">La Free Software Foundation (FSF)<a class="headerlink" href="#la-free-software-foundation-fsf" title="Permanent link">&para;</a></h2>
+<p>La <em>Free Software Foundation</em> (FSF) venne fondata da Richard Stallman il 4 ottobre del 1985 come supporto al <em>free software movement</em>, il quale promuoveva come abbiamo già visto la libertà universale di studiare, distribuire, creare e modificare software, possibilmente distribuito secondo termini <em>copyleft</em> (anche detti <em>share-alike</em>), così come definiti con la GNU General Public License. La FSF venne creata a Boston, dove è tuttora situata.</p>
+<p>Dalla sua fondazione fino alla metà degli anni '90, i fondi della FSF vennero usati principalmente per sviluppatori software che scrivessero software libero per il progetto GNU. Dal 1990, gli impiegati della fondazione ed i volontari hanno lavorato per lo più a parti legali e strutturali per il free software movement e la free software community.</p>
+<p>La <em>Free Software Foundation</em> (FSF) venne fondata nel 1985 come corporazione no-profit che supporta lo sviluppo di software <em>libero</em>. Ha permesso di continuare i progetti GNU esistenti, così come la vendita di materiale istruttivo, ed ha impiegato gli sviluppatori del software libero. Da quiel momento, ha continuato  le sue attività, così come pubblicizzare il software libero. La FSF è anche lo steward di diverse licenze per il software libero, il che significa che le pubblica ed ha la possibilità di revisionarle se necessario.</p>
+<p>La FSF detiene i diritti di diverse parti dei sistemi GNU, come il GCC. Come detentore dei diritti, ha l'autorità di forzare i requisiti di copyleft della GNU General Public License (GPL), quando accadono delle violazioni su questo software.</p>
+<p>Dal 1991 al 2001, la GPL è stata fatta rispsettare in maniera informarle, normalmente da Stallman. Nell'interesse di promuovere il copyleft, ad ogni modo, Harald Welte lanciò nel 2004 il sito gpl-violations.org.</p>
+<p>Nel tardo 2001, il direttore esecuitov della FSF, Bradley M. Kuhn, assieme a Moglen, Daviud Turner e Peter Brown, formalizzarono questi sforzi nella creazione del <em>GPL Compliance Labs</em>. Dal 2002 al 2004, tutte le cause di GPL enforcement di alto profilo, come quelle contro Linksys ed OpenTV, divennero più frequenti.</p>
+<p>Il GPL enforcement e le campagne educative sul rispetto della GPL fu uno degli sforzi maggiori durente questo periodo.</p>
+<p>Nel marzo del 2003, la SCO fece causa contro IBM, dicendo che i contributi ad IBM a diversi software liberi, inclusi alcuni del progetto GNU, violavano i diritti di SCO. FSF venne chiamata in causa a fine 2003, il che comportò un sostanziale sforzo per rispondere alla causa, con conseguente impatto negativo sull'adozione e promozione del software libero.</p>
+<p>Dal 2003 al 2005, la FSF ha tenuto seminari legali per spiegare il GPL e la normativa che lo riguardava. Normalmente erano tenuti da Bradley M. Kuhn e Daniel Ravicher, questi seminari erano il promo sforzo a dare un'educazione formale legale sulla GPL. </p>
+<p>Nel 2007, la FSF pubblicò la terza versione della GNU GPL dopo significative pressioni esterne.</p>
+<p>Nel dicembre 2008, la FSF ha lanciato una causa legale contro Cisco per l'uso di componenti GPL-licensed con i prodotti Linksys. Cisco è stato notificato del problema di licenze nel 2003, ma ripetuttamente ignorò gli avvisi. nel maggio 2009, la FSF lasciò la causa quando Cisco accettò di fare una donazione monetaria ad FSF e defini un Free Software DIrector per condurre review continue delle pratiche di compliance della compagnia alla licenza.</p>
+<h2 id="free-software-definition">Free Software Definition<a class="headerlink" href="#free-software-definition" title="Permanent link">&para;</a></h2>
+<p>La definizione di Free Software venne pubblicata dalla FSF nel febbraio del 1986, ed ha due punti:</p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>"The word "free" in our name does not refer to price; it refers to freedom. First, the freedom to copy a program and redistribute it to your neighbors, so that they can use it as well as you. Second, the freedom to change a program, so that you can control it instead of it controlling you; for this, the source code must be made available to you."</p>
+</div>
+<p>Nel 1996, quando venne lanciato il sito gnu.org, il free softwre venne definito avere <em>three levels of freedom</em> aggiungendo una menzione esplicita alla libertà di sfgudiare il software (che può essere letta nella definizione originaria come parte della libertà di cambiare il programma). Stallman successivamente evitò la parola "livelli", dicendo che si ha bisogno soltanto di tutta liberta, per cui non va bene pensarci in termini di livelli.</p>
+<p>Infine, venne aggiunta un'altra libertà, per indicare esplicitamente che l'utente deve essere in grado di eseguire il programma. Le libertà esistenti erano già numerate dalla uno alla tre, ma questa viene prima delle altre, ed è chiamata "zero". La definizione moderna ha quindi quattro definizioni:</p>
+<ul>
+<li>The freedom to run the program as you wish, for any purpose (freedom 0).</li>
+<li>The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this.</li>
+<li>The freedom to redistribute copies so you can help your neighbor (freedom 2).</li>
+<li>The freedom to distribute copies of your modified versions to others (freedom 3). By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.</li>
+</ul>
+<p>La prima e la terza libertà richiedono il sorgente, perché studiare e modificare il software senza il sorgente è molto poco pratico (per usare un eufemismo).</p>
+<h3 id="progetti-ad-alta-priorita">Progetti ad alta priorità<a class="headerlink" href="#progetti-ad-alta-priorita" title="Permanent link">&para;</a></h3>
+<p>La FSF manitene una lsita di <em>progetti ad alta priorità</em>, dei quali la Fondazione afferma che vi sia un bisogno vitale che la free software community si prenda carico. La FSF considera questi progetti importanti perché gli utenti sono continuamente spinti ad usare software non libero, perché non vi è un adeguato rimpiazzo libero.</p>
+<p>Le task ad alta priorità attuale sono il reverse enginerring di firmware proprietario; il revesible debugging in GNU Debugger, lo sviluppo di software automatico per trascrizione e video editing, Coreboot, driver per router di rete e  rimpiazzi per Skyupe, Google Earth, OpenDWG, BitTorrent Sync ed Oracle Forms.</p>
+<p>Alcuni di quelli del passato riguardavano GNU Classpath, il GNU Compiler per Java, e GNOME.</p>
+<p>Lo sforzo è stato criticato da Michael Larabel per non istigare lo sviluppo attivo o per essere lenti nello sviluppo, anche dopo che certi progetti sono stati aggiunti alla lista.</p>
+<h3 id="critiche">Critiche<a class="headerlink" href="#critiche" title="Permanent link">&para;</a></h3>
+<h4 id="posizione-sul-drm">posizione sul DRM<a class="headerlink" href="#posizione-sul-drm" title="Permanent link">&para;</a></h4>
+<p>Linus Torvalds ha criticatoi la FSF per usare GPLv3 come arma nella lotta al DRM. Torvals nota che il problema della DRM e quello delle licenze dovrebbero essere separati.</p>
+<h4 id="defective-by-desiugn">Defective by Desiugn<a class="headerlink" href="#defective-by-desiugn" title="Permanent link">&para;</a></h4>
+<p>Nel giungo 2919 Joe Brockmeier, un giornalista al Linux Magazine, criticò la campagna Defective by Design della FSF come "negativa " ed infantile e non adeguata per dare agli utenti alternative credibili al softgware propreiatario. La FSF rispose a queste critiche dicendo che "that there is a fundamental difference between speaking out against policies or actions and smear campaigns", e che "that if one is taking an ethical position, it is justified, and often necessary, to not only speak about the benefits of freedom but against acts of dispossession and disenfranchisement."[63]</p>
+<h4 id="gnu-libredwg-license-controversy">GNU LibreDWG license controversy<a class="headerlink" href="#gnu-libredwg-license-controversy" title="Permanent link">&para;</a></h4>
+<p>Nel 2009, un aggiornamento di LibDWG/LibreDWG alla versione 3 della GPL ha reso impossibile per i progetti LibreCAD e FreeCad di usare la LibreDWG legalmente. Molti altri si aggiunsero al coro, come Assimp e Blender. Alcuni selezionariono che la scelta di una licenza con una compatibilità più alta, come MIT, BSD o LGPL 2.1. Questa richiesta è stata respinta nel 2012.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../01_hacker/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                La cultura hacker
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../02_linux/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Linux
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,431 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>La cultura hacker - Hands-on Arduino</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#il-software-libero" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Hands-on Arduino" class="md-header-nav__button md-logo" aria-label="Hands-on Arduino">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Hands-on Arduino
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              La cultura hacker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Hands-on Arduino" class="md-nav__button md-logo" aria-label="Hands-on Arduino">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Hands-on Arduino
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      
+      <label class="md-nav__link" for="nav-2">
+        Open Source e Making
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Open Source e Making" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Open Source e Making
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        La cultura hacker
+      </a>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_gnu/" class="md-nav__link">
+        Il progetto GNU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_osi.md" class="md-nav__link">
+        L'Open Source Initiative
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_hardware/" class="md-nav__link">
+        L'Open Hardware
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_making/" class="md-nav__link">
+        Il fenomeno del Making
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="il-software-libero">il software libero<a class="headerlink" href="#il-software-libero" title="Permanent link">&para;</a></h1>
+<h1 id="lhardware-libero">l'hardware libero<a class="headerlink" href="#lhardware-libero" title="Permanent link">&para;</a></h1>
+<h1 id="il-making">il making<a class="headerlink" href="#il-making" title="Permanent link">&para;</a></h1>
+<h1 id="il-software-libero_1">Il software libero<a class="headerlink" href="#il-software-libero_1" title="Permanent link">&para;</a></h1>
+<p>TODO: vanno concentrati in un'unica lezione, troppo prolisso</p>
+<p>Iniziamo il nostro viaggio alla scoperta di Arduino parlando del concetto "sottostante" all'intero fenomeno, ovvero quello dell'<em>open source</em>.</p>
+<p>Per farlo, partiremo dagli anni '60, quando un gruppo di ricercatori e studenti del MIT iniviava l'esplorazione delle sconfinate lande del sapere virtuale, creando quella che negli anni successivi sarebbe stata conosciuta come <em>cultura hacker</em>.</p>
+<h2 id="la-cultura-hacker">La cultura hacker<a class="headerlink" href="#la-cultura-hacker" title="Permanent link">&para;</a></h2>
+<p>Il termine <em>hacker</em> deriva da una parola del diciassettesimo secolo, indicante un lavoratore che, in maniera più o meno vigorosa, curava il terreno mediante la sua zappa. Ovviamente, però, non è questo il concetto che abbiamo in mente quando pensiamo ad un hacker!</p>
+<p>Dalla fine della seconda guerra mondiale in poi, e specialmente a seguito della creazione dei primi computer ENIAC, alcuni dei primi programmatori, che erano principalmente matematici, fisici o ingegneri, iniziarono a coltivare una vera e propria passione per la loro nascente professione.</p>
+<p>C'era una crescente ricerca di uno stile di programmazione <em>elegante</em> e <em>ricercato</em>: questa ricerca portò, verso l'inizio degli anni '60, ad utilizzare il termine hacker per descrivere dei programmatori particolarmente abili, che godevano della <em>sfida</em> legata al ricercare modi innovativi per aggirare i limiti dei sistemi dell'epoca, provando contestualmente a migliorare le loro abilità.</p>
+<p>All'epoca, però, i meccanismi di comunicazione non erano paragonabili a quelli odierni. Ciò comportò la nascita di diverse "subculture" hacker, indipendenti e parallele, spesso non consapevoli le une delle altre. Tutte però avevano diverse caratteristiche in comune, tra cui le più notevoli erano sicuramente la condivisione della conoscenza, una (non troppo velata) ostilità verso la segretezza e l'autorità, ed una certa predisposizione all'humor.</p>
+<p>Le diverse subculture hacker nascevano normalmente negli ambienti accademici: l'AI Lab del MIT, la University of California, Berkeley e la Carnegie Mellon University erano rinomante per essere dei terreni fertili per gli hacker.</p>
+<p>Il primo "contatto" tra le diverse culture avvenne con l'avvento di ARPANET, nel 1969. In particolare, il focus venne portato verso un PDP-10 del MIT, che non implementava il software fornito da DEC, ma un sistema operativo interamente scritto dagli hacker al MIT, ovvero ITS (acronimo che sta per <em>Incompatible Timesharing System</em>). Il fatto che i ragazzi del MIT avessero creato il loro sistema operativo dà una buona idea dell'attitudine degli hacker: non si accontentano delle tecniche standard, ma vogliono che lavorino come dicono loro.</p>
+<p>ARPANET fece in modo che le mailing list elettroniche venissero usate per sviluppare la cooperazione tra gruppi di interesse remoti, ed usata anche per scopi sociali e ricreativi. La DARPA, che aveva sviluppato ARPANET, chiudeva un occhio su tutte queste attività, considerate "non autorizzate": capiva che l'overhead extra da sopportare era un piccolo prezzo da pagare per attirare un'intera generazione di menti brillante nell'ambito del computing.</p>
+<p>Altre influenze importanti furono gli sviluppi apportati da XEROX PARC, ovvero il Palo Alto Research Center di XEROX, che tra l'inizio degli anni '70 e la metà degli anni '80 portò un gran volume di innovazioni hardware e software. Ciò che usiamo normalmente al giorno d'oggi, inclusi mouse, interfacce grafiche e stampanti laser, oltre che le LAN, vennero inventate dal PARC.</p>
+<p>Importantissima fu anche l'ascesa del movimento del software libero, di cui parleremo estesamente più avanti: la community dei diversi gruppi hacker si unì, raggiungendo la "massa critica" che le permetteva di incoraggiare la diffusione dell'etica <em>hacker</em>, che portò all'adozione di uno slang comune ed una visione condivisa della società, in modo simile a quanto avviene per altri gruppi e comunità, ma in maniera sicuramente più informale.</p>
+<h3 id="i-testi-cardine">I testi cardine<a class="headerlink" href="#i-testi-cardine" title="Permanent link">&para;</a></h3>
+<p>La cultura hacker ha diversi testi "cardine", che ne rappresentano i punti fondamentali.</p>
+<h4 id="jargon-file">Jargon File<a class="headerlink" href="#jargon-file" title="Permanent link">&para;</a></h4>
+<p>Il <a href="https://en.wikipedia.org/wiki/Jargon_File">Jargon File</a>, la cui prima versione venne redatta da Raphael Finkel nel 1975, è una sorta di "glossario" che racchiude i più importanti termini usati nello slang dei programmatori. Originariamente, era una semplice collezione di termini da culture "tecniche", come l'AI Lab del MIT, il SAIL (Stanford AI Lab) ed altri facenti parte delle community ARPANET AI/LISP/PDP-10. Il Jargon File venne poi rivisto nel 1983, e pubblicato come <em>The Hacker's Dictionary</em> da Guy Steele, e poi nel 1991, nel <em>The New Hacker's Dictionary</em>. Il file venne comunque concepito negli anni '50 dal Tech Model Railroad Club del MIT.</p>
+<h4 id="catb">CatB<a class="headerlink" href="#catb" title="Permanent link">&para;</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar">CatB</a> (il cui nome completo è in realtà <em>The Cathedral and the Bazaar: Musings on Linux and Open Source by an Accidental Revolutionary</em>) è un saggio pubblicato da Eric Raymond nel 1997, e focalizzato sul contrasto tra due diversi modelli di sviluppo del software libero: il primo è il modello <em>Cathedral</em>, nel quale il codice sorgente è disponibile ad ogni release del software, ma quello <em>tra</em> le release (ovvero il codice di sviluppo) è disponibile soltanto agli sviluppatori, mentre il secondo è il modello <em>Bazaar</em>, nel quale il codice è sviluppato in Internet e visibile dal pubblico. Esempi notevoli di codice <em>Cathedral</em> sono GCC ed Emacs, mentre l'esempio maggiormente conosciuto di software <em>Bazaar</em> è Linux.</p>
+<p>Nel saggio, Raymond afferma che il modello migliore è il secondo: tutto è sotto gli occhi di tutti, il che facilita la scoperta e correzione di bug e comportamenti inattesi; ed è in realtà questo il modello che è andato affermandosi al giorno d'oggi (pensiamo al funzionamento di repository come GitHub).</p>
+<h4 id="il-gnu-manifesto">Il GNU Manifesto<a class="headerlink" href="#il-gnu-manifesto" title="Permanent link">&para;</a></h4>
+<p>Il manfiesto GNU venne scritto da Stallman per aumentare il supporto al progetto GNU. Nel GNU Manifesto, Stallman elencava quattro principi fondamentali per gli utenti di un software: la <em>libertà di eseguire un programma per qualunque scopo</em>, <em>libertà di studiare i meccanismi alla base del programma e modificarli</em>, libertà di redistribuirne copie, e libertà di migliorare e cambiare versioni modificate per l'uso pubblico. Per implementare queste libertà, gli utenti avevano bisogno di accesso completo al codice. Per assicurarsi che il codice rimanesse libero ed a disposizione del pubblico, Stallman creò la GNU General Public License (GPL), che permetteva ai software ed alle generazioni successive di codice derivate da questo di rimanere libere per l'uso pubblico.</p>
+<p>Parleremo più estesamente del manifesto GNU nella sezione dedicata a Richard Stallman.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../.." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../02_gnu/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Il progetto GNU
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,419 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>TODO: estendere - Hands-on Arduino</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#todo-estendere" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Hands-on Arduino" class="md-header-nav__button md-logo" aria-label="Hands-on Arduino">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Hands-on Arduino
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              TODO: estendere
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Hands-on Arduino" class="md-nav__button md-logo" aria-label="Hands-on Arduino">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Hands-on Arduino
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        Open Source e Making
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Open Source e Making" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Open Source e Making
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_open_source_making/01_hacker/" class="md-nav__link">
+        La cultura hacker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_open_source_making/02_gnu/" class="md-nav__link">
+        Il progetto GNU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_open_source_making/02_linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_open_source_making/03_osi.md" class="md-nav__link">
+        L'Open Source Initiative
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_open_source_making/04_hardware/" class="md-nav__link">
+        L'Open Hardware
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_open_source_making/05_making/" class="md-nav__link">
+        Il fenomeno del Making
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#la-ide-di-arduino" class="md-nav__link">
+    La IDE di Arduino
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestore-delle-schede" class="md-nav__link">
+    Gestore delle schede
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestore-delle-librerie" class="md-nav__link">
+    Gestore delle librerie
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installazione-e-primo-avvio" class="md-nav__link">
+    Installazione e primo avvio
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="todo-estendere">TODO: estendere<a class="headerlink" href="#todo-estendere" title="Permanent link">&para;</a></h1>
+<p>L'acronimo <em>IDE</em> sta per <em>Integrated Development Environment</em>, e rappresenta, in informatica, il vero e proprio <em>ambiente di sviluppo</em>.</p>
+<p>Una IDE offre, in genere, un certo numero di funzionalità che possono semplificare la vita allo sviluppatore, velocizzando i tempi di sviluppo di un programma. Alcuni esempi di questi tool sono:</p>
+<ul>
+<li><em>syntax highlighting</em>: le IDE offrono dei tool che permettono di evidenziare la sintassi, differenziando tra keyword del linguaggio, tipi, nomi delle variabili, e così via;</li>
+<li><em>compilazione semplificata</em>: molte IDE permettono di compilare il nostro codice sorgente tramite la semplice pressione di un tasto, eliminando quinid la necessità di ricorrere a strumenti da riga di comando molto spesso complessi e di difficile configurazione;</li>
+<li><em>tool per test e debug</em>: le IDE offrono solitamente degli strumenti in grado di eseguire inmodo semplice l'intera suite di test per il nostro programma, o di aiutarci nel debug riga per riga dello stesso;</li>
+<li><em>integrazione per il versioning</em> le IDE possono offrire dei tool per la gestione semplificata dei sistemi di VCS (Version Control Systems) come Git.</li>
+</ul>
+<h2 id="la-ide-di-arduino">La IDE di Arduino<a class="headerlink" href="#la-ide-di-arduino" title="Permanent link">&para;</a></h2>
+<p>Tra i diversi tool disponibili per Arduino, uno tra i più importanti, se non forse <em>il</em> più importante, è per l'appunto la <a href="https://www.arduino.cc/en/Main/Software">IDE di Arduino</a>, Questo strumento, rilasciato anch'esso sotto licenza open source, è lo strumento principale per lo sviluppo dei programmi (<em>sketch</em>) che saranno eseguiti sulla baord.</p>
+<p>Esistono diverse versioni dell'IDE. La prima è quella classica, scaricabile a questo indirizzo, mentre la seconda è l'editor web, raggiungibile a <a href="https://create.arduino.cc/editor">questo indirizzo</a>.</p>
+<p>La IDE offre diversi tool, tra cui i più importanti sono il Gestore delle Schede ed il Gestore delle Librerie.</p>
+<h2 id="gestore-delle-schede">Gestore delle schede<a class="headerlink" href="#gestore-delle-schede" title="Permanent link">&para;</a></h2>
+<p>Abbiamo già visto come quella di Arduino sia in realtà una <em>famiglia</em> di schede. Ciò comporta che, per definizione, esistano delle differenze tra diverse schede: pensiamo ad esempio alle schede della famiglia Arduino Uno, che non supportano le uscite analogiche, che invece sono supportate dalle schede della famiglia di Arduino Due.</p>
+<p>Altro fattore influente è la natura <em>open</em> di Arduino: le schematiche sono liberamente disponibili, per cui nel tempo è sorto un ecosistema di <em>cloni</em>, di qualità più o meno elevata, alle volte non compatibili con la scheda originaria a causa di differenze in termini di microcontrollore.</p>
+<p>Le differenze tra le varie famiglie implicano come diretta conseguenza l'impossibilità di utilizzare un unico driver per tutte le schede; di conseguenza, è necessaria una maniera per gestire le differenti configurazioni.</p>
+<p>Per far questo è stato introdotto il <em>gestore delle schede</em>: questo permette, mediante un semplice wizard, di gestire diverse schede, selezionandone la famiglia, ed andando a configurarne ciascuna a seconda dei casi.</p>
+<h2 id="gestore-delle-librerie">Gestore delle librerie<a class="headerlink" href="#gestore-delle-librerie" title="Permanent link">&para;</a></h2>
+<p>Arduino è fortemente incentrato sull'open source. Questo significa che la community ha, nel tempo, sviluppato diverse <em>librerie</em>, ovvero collezioni di classi, metodi e variabili, per la gestione della maggior parte dei casi possibili.</p>
+<p>Esistono librerie per la gestione, ad esempio, di diverse classi di sensori di temperatura; librerie per la gestione dei servomotori, librerie per l'utilizzo di server REST, e via dicendo.</p>
+<p>Affidarsi a queste librerie è molto spesso meglio che scrivere da sè le funzionalità: questo, infatti, ci permette di procedere più speditamente ad implementare le funzionalità che effettivamente ci servono, oltre che di affidarci ad una base 'condivisa' da diversi programmatori (alcuni dei quali con molta esperienza).</p>
+<p>Per semplificarci la vita, Arduino ci offre un apposito gestore, che può essere utilizzato sia per integrare una preselezione di librerie curata direttamente dalla community, sia per integrare qualsiasi tipo di libreria fornita in un formato compatibile (che, solitamente, è un file di tipo <code>.zip</code>).</p>
+<h2 id="installazione-e-primo-avvio">Installazione e primo avvio<a class="headerlink" href="#installazione-e-primo-avvio" title="Permanent link">&para;</a></h2>
+<p>TODO: ILLUSTRARE LA PROCEDURA DI INSTALLAZIONE E DI PRIMO AVVIO DELLA IDE</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

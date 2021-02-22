@@ -1,0 +1,536 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>RIVEDERE - Hands-on Arduino</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rivedere" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Hands-on Arduino" class="md-header-nav__button md-logo" aria-label="Hands-on Arduino">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Hands-on Arduino
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              RIVEDERE
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Hands-on Arduino" class="md-nav__button md-logo" aria-label="Hands-on Arduino">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Hands-on Arduino
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        Open Source e Making
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Open Source e Making" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Open Source e Making
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_open_source_making/01_hacker/" class="md-nav__link">
+        La cultura hacker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_open_source_making/02_gnu/" class="md-nav__link">
+        Il progetto GNU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_open_source_making/02_linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_open_source_making/03_osi.md" class="md-nav__link">
+        L'Open Source Initiative
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_open_source_making/04_hardware/" class="md-nav__link">
+        L'Open Hardware
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_open_source_making/05_making/" class="md-nav__link">
+        Il fenomeno del Making
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#di-cosa-abbiamo-bisogno" class="md-nav__link">
+    Di cosa abbiamo bisogno?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#come-fare" class="md-nav__link">
+    Come fare?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lo-sketch-nel-dettaglio" class="md-nav__link">
+    Lo sketch (nel dettaglio)
+  </a>
+  
+    <nav class="md-nav" aria-label="Lo sketch (nel dettaglio)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linizializzazione-delle-variabili" class="md-nav__link">
+    L'inizializzazione delle variabili
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#il-setup" class="md-nav__link">
+    Il setup()
+  </a>
+  
+    <nav class="md-nav" aria-label="Il setup()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-funzione-pinmode" class="md-nav__link">
+    La funzione pinMode()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#il-loop" class="md-nav__link">
+    Il loop()
+  </a>
+  
+    <nav class="md-nav" aria-label="Il loop()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-funzione-digitalwrite" class="md-nav__link">
+    La funzione digitalWrite()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-funzione-delay" class="md-nav__link">
+    La funzione delay()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="rivedere">RIVEDERE<a class="headerlink" href="#rivedere" title="Permanent link">&para;</a></h1>
+<p>Riprendiamo direttamente da dove avevamo interrotto la lezione precedente, e scriviamo il nostro primo sketch. La tradizione impone che il primo programma in un nuovo linguaggio sia il (famigerato) <code>Hello, World!</code>, uno script (invero molto semplice) la cui principale (ed unica) funzione è quella di visualizzare a schermo la scritta <strong>Hello, World!</strong>.</p>
+<p>Arduino, ovviamente, non va contro le ormai consolidate usanze. E' però necessario modificarle leggermente, dato che stiamo parlando di una piattaforma che combina hardware e software, per cui il nostro sketch dovrà eseguire l'operazione più semplice che si possa effettuare sui due elementi combinati. Ovvero, molto banalmente, far <em>lampeggiare un LED</em>. Benvenuti nello script <code>Blink.ino</code>.</p>
+<h2 id="di-cosa-abbiamo-bisogno">Di cosa abbiamo bisogno?<a class="headerlink" href="#di-cosa-abbiamo-bisogno" title="Permanent link">&para;</a></h2>
+<p>Tutti gli sketch che andremo ad eseguire su Arduino necessiteranno, oltre che della parte software, anche di alcune componenti hardware. Per questa prima prova, ci occorreranno:</p>
+<ul>
+<li>un LED (il colore non è importante);</li>
+<li>una resistenza da &Omega;;</li>
+<li>connettori a coccodrillo, jumper e/o una breadboard.</li>
+</ul>
+<p>In realtà, esclusivamente per questo sketch, possiamo fare a meno di utilizzare la componentistica hardwre, sfruttando il LED integrato nella maggior parte delle board Arduino (tra cui la Uno, che è quella che utilizzeremo). Tuttavia, può essere utile usare questa configurazione per fare pratica.</p>
+<h2 id="come-fare">Come fare?<a class="headerlink" href="#come-fare" title="Permanent link">&para;</a></h2>
+<p>Per prima cosa, inseriamo il LED all'interno della breadboard il LED, e colleghiamo il capo più corto alla resistenza da 220 &Omega;, come in figura. Successivamente, colleghiamo il capo del LED libero al GND, ed il terminale libero della resistenza al pin 13 di Arduino. E' importante sottolineare come la resistenza non sia <em>polarizzata</em>: ciò permette quindi di collegarla al LED ed alla scheda in maniera indipendente dal verso scelto. Nella figura successiva, vediamo come collegare effettivamente le varie componenti del circuito.</p>
+<p><img alt="blink" class="center" src="../immagini/fondamentali/blink.png" /></p>
+<p>Questa configurazione (che è quella che seguiremo) utilizza la breadboard ed i jumper.</p>
+<h2 id="lo-sketch-nel-dettaglio">Lo sketch (nel dettaglio)<a class="headerlink" href="#lo-sketch-nel-dettaglio" title="Permanent link">&para;</a></h2>
+<p>Colleghiamo adesso l'Arduino al nostro computer mediante un cavo USB, avviamo la IDE, ed inseriamo il codice seguente in un nuovo sketch, che chiameremo <code>01-blink.ino</code>.</p>
+<div class="highlight"><pre><span></span><code>int led = 13;
+int latency = 1000;
+
+void setup() {
+    pinMode(led, OUTPUT);
+}
+
+void loop() {
+    digitalWrite(led, HIGH);
+    delay(latency);
+    digitalWrite(led, LOW);
+    delay(latency);
+}
+</code></pre></div>
+<p>Clicchiamo ora sul pulsante <strong>Verifica</strong> dell'IDE; se è tutto ok, potremo procedere a caricare lo sketch sulla scheda tramite il pulsante <strong>Carica</strong>. I pulsanti sono collocati in alto a sinistra nell'IDE, e sono mostrati nella figura successiva.</p>
+<p><img alt="verifica_compilazione" class="center" src="../immagini/fondamentali/verifica_compilazione.png" /></p>
+<p>Una volta caricato lo sketch sulla scheda, se tutto è andato per il verso giusto, vedremo il led accendersi e spegnersi ogni secondo.</p>
+<p>Torniamo sul codice che abbiamo scritto nel nostro primo sketch, ed analizziamolo quindi più nel dettaglio.</p>
+<h3 id="linizializzazione-delle-variabili">L'inizializzazione delle variabili<a class="headerlink" href="#linizializzazione-delle-variabili" title="Permanent link">&para;</a></h3>
+<p>Il primo blocco di codice che vogliamo analizzare è il seguente:</p>
+<div class="highlight"><pre><span></span><code>int led = 13;
+int latency = 1000;
+</code></pre></div>
+<p>Qui vediamo un semplice esempio di applicazione dei concetti che abbiamo già illustrato quando abbiamo introdotto le variabili. Infatti, si tratta di due semplici <em>inizializzazioni</em> e <em>dichiarazioni</em>, rispettivamente della variabile di tipo intero <code>led</code>, il cui valore è pari a 13, e della variabile (sempre di tipo intero) <code>latency</code>, il cui valore è pari a 1000.</p>
+<h3 id="il-setup">Il <code>setup()</code><a class="headerlink" href="#il-setup" title="Permanent link">&para;</a></h3>
+<p>Andiamo avanti con l'analisi del codice, e troviamo la nostra prima <em>funzione</em>, ovvero <code>void setup()</code>. Questa funzione viene chiamata all'inizio dell'esecuzione dello sketch, e serve ad impostare i valori e le operazioni iniziali. In questo caso, abbiamo già inizializzato i valori di <code>led</code> e <code>latency</code>; tuttavia, sarebbe stato ugualmente corretto modificare la funzione <code>setup()</code> per fare in modo che i valori iniziali di queste variabili fossero assegnati proprio all'interno di questa:</p>
+<div class="highlight"><pre><span></span><code>void setup() {
+    led = 13;
+    latency = 1000;
+    pinMode(led, OUTPUT);
+}
+</code></pre></div>
+<p>All'interno della funzione <code>setup()</code>, è possibile notare una ulteriore funzione, ovvero <code>pinMode()</code>. Vediamo assieme di cosa si tratta.</p>
+<h4 id="la-funzione-pinmode">La funzione <code>pinMode()</code><a class="headerlink" href="#la-funzione-pinmode" title="Permanent link">&para;</a></h4>
+<p>La funzione <code>pinMode()</code> permette di impostare la modalità di funzionamento di un pin: in particolare, questo può essere impostato come un <em>output</em> (ovvero come una <em>uscita</em>) o un <em>input</em> (ovvero come un <em>ingresso</em>). Quando il pin è impostato come output, è in grado di <em>scrivere</em>, o inviare in uscita, un certo valore di tensione; quando invece è impostato come input, è in grado di <em>leggere</em>, o ricevere in ingresso, un certo valore di tensione.</p>
+<p>Di conseguenza, <code>pinMode()</code> accetta due parametri: il primo è il numero del pin di cui settare la modalità di funzionamento, mentre il secondo è indicativo della modalità di funzionamento vera e propria. Per quello che riguarda il primo parametro, questo è semplice da interpretare e ricordare, e può assumere valori che vanno da <code>0</code> a <code>13</code> per i pin digitali, e da <code>A0</code> ad <code>A5</code> per i pin analogici. Il secondo parametro è anch'esso estremamente semplice da ricordare, e può essere <code>INPUT</code> o <code>OUTPUT</code>.</p>
+<h3 id="il-loop">Il <code>loop()</code><a class="headerlink" href="#il-loop" title="Permanent link">&para;</a></h3>
+<p>Vediamo ora il corpo centrale dello sketch, costituito dalla funzione <code>loop()</code>, la quale esegue in maniera <em>iterativa</em> (ovvero ciclica) le istruzioni contenute al suo interno. In particolare, la nostra implementazione del loop contiene le seguenti istruzioni:</p>
+<div class="highlight"><pre><span></span><code>void loop() {
+    digitalWrite(led, HIGH);
+    delay(latency);
+    digitalWrite(led, LOW);
+    delay(latency);
+}
+</code></pre></div>
+<p>Approfondiamo le due nuove funzioni che abbiamo appena scritto, ovvero <code>digitalWrite()</code> e <code>delay()</code>.</p>
+<h4 id="la-funzione-digitalwrite">La funzione <code>digitalWrite()</code><a class="headerlink" href="#la-funzione-digitalwrite" title="Permanent link">&para;</a></h4>
+<p>La funzione <code>digitalWrite()</code> viene utilizzata per applicare una certo valore di tensione ai capi di un pin digitale. In particolare, gli unici valori ammissibili sono <em>alto</em> (<code>HIGH</code>) e <em>basso</em> (<code>LOW</code>). Impostare un valore alto applicherà ai capi del pin una tensione di 5 volt, la quale farà accendere il LED; di converso, un valore basso applicherà ai capi del pin un valore di tensione nullo, per cui il LED si spegnerà.</p>
+<p>Il motivo per cui il LED si accende o spegne a seconda della tensione applicata è semplice, ed è riconducibile ai principi di base dell'elettronica. Infatti, dato che un capo del LED è collegato a terra (GND), con tensione pari a 0 V, applicare una differenza di potenziale grazie ai 5 V del pin settato su <code>HIGH</code> provocherà lo scorrere della corrente attraverso il LED. Ciò, ovviamente, non avverrà qualora la differenza di potenziale tra GND e pin 13 sia nulla (ovvero, se entrambi sono a 0 V).</p>
+<h4 id="la-funzione-delay">La funzione <code>delay()</code><a class="headerlink" href="#la-funzione-delay" title="Permanent link">&para;</a></h4>
+<p>L'altra funzione che abbiamo appena scoperto è <code>delay()</code>. Questa funzione accetta come parametro in ingresso un unico valore, pari al tempo (in millisecondi) che lo sketch dovrà attendere prima di proseguire nella sua esecuzione. In questo caso, quindi, scrivere:</p>
+<div class="highlight"><pre><span></span><code>delay(latency);
+</code></pre></div>
+<p>significa imporre un ritardo pari proprio al valore di <code>latency</code> (che ricordiamo essere pari a 1000) prima della prosecuzione nell'esecuzione dello sketch.</p>
+<h1 id="ricapitoliamo">Ricapitoliamo<a class="headerlink" href="#ricapitoliamo" title="Permanent link">&para;</a></h1>
+<p>Rivediamo assieme cosa abbiamo imparato in questo sketch.</p>
+<p>Per prima cosa:</p>
+<ul>
+<li>inizializziamo due variabili di tipo intero.</li>
+</ul>
+<p>Nel <code>setup()</code>:</p>
+<ul>
+<li>impostiamo il pin 13 in modalità <code>OUTPUT</code>.</li>
+</ul>
+<p>Nel <code>loop()</code>:</p>
+<ul>
+<li>per prima cosa, impostiamo il valore del pin 13 su <code>HIGH</code>, per cui il LED si accende;</li>
+<li>l'esecuzione del programma viene sospesa per un secondo;</li>
+<li>il valore del pin 13 viene quindi impostato a <code>LOW</code>, per cui il LED si spegne;</li>
+<li>l'esecuzione del programma viene sospesa per un secondo;</li>
+<li>il <code>loop()</code> ricomincia fino a che Arduino è in funzione.</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

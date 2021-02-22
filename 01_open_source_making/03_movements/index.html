@@ -1,0 +1,428 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>I movimenti Open Source - Hands-on Arduino</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#i-movimenti-open-source" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Hands-on Arduino" class="md-header-nav__button md-logo" aria-label="Hands-on Arduino">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Hands-on Arduino
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              I movimenti Open Source
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Hands-on Arduino" class="md-nav__button md-logo" aria-label="Hands-on Arduino">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Hands-on Arduino
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        Open Source e Making
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Open Source e Making" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Open Source e Making
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_hacker/" class="md-nav__link">
+        La cultura hacker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_gnu/" class="md-nav__link">
+        Il progetto GNU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_osi.md" class="md-nav__link">
+        L'Open Source Initiative
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_hardware/" class="md-nav__link">
+        L'Open Hardware
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_making/" class="md-nav__link">
+        Il fenomeno del Making
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lopen-source-initiative-osi" class="md-nav__link">
+    L'Open Source Initiative (OSI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coining-open-source" class="md-nav__link">
+    coining "open source"
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-fondazione-dellorganizzaizone" class="md-nav__link">
+    La fondazione dell'Organizzaizone
+  </a>
+  
+    <nav class="md-nav" aria-label="La fondazione dell'Organizzaizone">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#valutazione-delle-licenze" class="md-nav__link">
+    Valutazione delle licenze
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altra-divulgazione" class="md-nav__link">
+    altra divulgazione
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="i-movimenti-open-source">I movimenti Open Source<a class="headerlink" href="#i-movimenti-open-source" title="Permanent link">&para;</a></h1>
+<h2 id="lopen-source-initiative-osi">L'Open Source Initiative (OSI)<a class="headerlink" href="#lopen-source-initiative-osi" title="Permanent link">&para;</a></h2>
+<p>Lo sviluppo basato sulla condivisione e sul miglioramento collettivo del codice sorgente del software ha una storia lunga quanto quella dello sviluppo software stesso. Al termine degli anni '90, l'interesse e la partecipazione in questo fenomeno aumentarono marcatamente con il riconoscimento mainstream di Linux in pubblicazioni come Forbes, oltre alla contestuale release del codice sorgente del browser NEtscape.</p>
+<p>L'OSI venne format anel 1998 come un'organizzazione volta all'educazione ed alla sponsorizzazione di quesot importante momento nella stora dello sviluppo collaborativo.</p>
+<h2 id="coining-open-source">coining "open source"<a class="headerlink" href="#coining-open-source" title="Permanent link">&para;</a></h2>
+<p>la label "open source" venne creata il 3 febbraio del 1998 durante una riunione a Palo Alto, subito dopo l'annuncio della release del codice sorgente di Netscape. La sessione crebbe da una realizzazioene che l'attenzione sull'annuncio di Netscape aveva creato un'opportunità per educare riguardo alla superiorità di un processo di <em>open development</em>.</p>
+<p>I partecipanti alla conferenza credevano che il pragmatismo business-oriented che aveva motivato Netscape a rilasciare il loro codice sorgente illustrava un modo valevole di interfacciarsi con potenziali utenti e sviluppatori, convincendoli a creare e migliorare il codice sorgente partecipando in una community coinvolta. I partecipanti alla conferenza credevano anche che sarebbe stato utile avere uan singola etichetta che identificasse questo approccio, distinguendolo dalle label "free software". Il brainstorming per questa nuova label convergette sul termine open source, originariamente suggerito da Chirstine Peterson.</p>
+<p>Due di quelli presenti al meeting di Palo Alto (Eric Raymond e Michael Tiemann) sarebbero stati successivamente presidenti dell'OSI, mentre altri (come Todd Andersen, Jon Hall, Larry Augustin e Sam Ockman) sarebbero stati dei supporter iniziali dell'organizzazione.</p>
+<p>L'adozione del termine divenne rapida, con il supporto da parte di diverse figure importanti nella communityu, come Linus Torvalds, e dall'aprile del 1998 il free Software Summit venne frequentato da importanti pesonalità, inclusi le figure che vavevano fondato Python Per e Apache, e rapprensentatni della IETF e dell'Internet Software Consortium.</p>
+<h2 id="la-fondazione-dellorganizzaizone">La fondazione dell'Organizzaizone<a class="headerlink" href="#la-fondazione-dellorganizzaizone" title="Permanent link">&para;</a></h2>
+<p>L'OSI venne fondata congiuntamente da Eric Raymond e Bruce Perens nel tardo febbraio dle 1998, con Raymond come primo presidente, Perens come vicepresidente, ed un iniziale board composto da Brian Behlendorf, Ian Murdock, Russ Nelson, e Chip Salzenberg.</p>
+<p>OSI venne concepita come un'organizzazione educativa e didivulgazione per eseguire la stessa mission su cui ci si era accordati durante il Free Software Summit dell'aprile del 1998. Al meeting iniziale, il board originale accettà questa mission generale, e decise si focalizzarsi specificamente sullo spiegare e proteggere la label "open source". venne portato avanti anche dell'attivismo inizialmente, con l'OSI che supportava una petizione per incoraggiare il governo US ad usare software open source nel gennaio del 1999.</p>
+<h3 id="valutazione-delle-licenze">Valutazione delle licenze<a class="headerlink" href="#valutazione-delle-licenze" title="Permanent link">&para;</a></h3>
+<p>Una delle prime task condotte da OSI fu quella di creare dei draft della Open Source Definition (OSD), ed usarla per creare una lista di licenze approvate dalla OSI.</p>
+<p>La OSD venne originariamente derivata dalla <em>Debian Free Software Guidelines</em> (DFSG). Bruce Perens aveva compost il draft originale della DFSG, e questo evnne editato, rifinito ed approvato come policy formale dalla comunità di sviluppatori Debian nel 1997. L'OSD venne queindi creata durante il lancio della OSI nel febbraio del 1998 rivedendo la DFSG e rimuovendo i riferimenti a software specifico per Debian.</p>
+<p>Nell'ottobre del 1999, OSI aveva pubblicato la sua prima lista formale di licenze approvate. La lista di licenze OSI, aggiornata da allora molte volte, è rimasta la lista canonica di licenze open source, ed è referenziata da diverse parti terze, inclusi governi ed organismi di standardizzazione.</p>
+<p>Nel 2004, l'OSI aggiunse la clausola 10 all'OSD per affrontare alcuni problemi riguardanti il cosiddetto <em>click-wrap licensiong</em> (TODO: trova). Altrimenti l'OSD sarebbe stata stabile dalla sua nascita, con solo poche parole di chiarificazione in altre clausole.</p>
+<p>Nel 2004, a causa dell'aumento nel mercato del numero di licenze opensource, OSI lanciò una campagna per ridurne il numero. Questo risultò nel 2006 nella pubblicazione di un report detto di <em>License Proliferation</em>, e una ricategorizzazione delle lioste delle licenze in gruppi di licenze basati sull'uso così come sul contentuto. Il report dell'OSI ed il processo aiutarno a portare un'ampia consapevolezza sul problema generale della proliferazione delle licenze, riducendo contestualmente la creazione e l'uso di nuove licenze.</p>
+<h3 id="altra-divulgazione">altra divulgazione<a class="headerlink" href="#altra-divulgazione" title="Permanent link">&para;</a></h3>
+<p>Il successo principale del Board è quello di posizionare la OSD come lo standard del licensing open source, e l'OSI come un corpo standard trusted sia dalla comunità di sviluppatori che dal mondo del business e dal governo. Il progetto venne ampiamente raggiunto verso al fine degli anni '90, e OSI si è poi focalizzata sul diventare uno delle community di open source principali assieme alla Free Software Foundation.</p>
+<p>Molta della divuoltazione dell'OSI prende la forma di persuasione quieta piuttosto che di attivismo - spesso offre background a report, da suggerimenti a politici e business cases ai dirigenti. La reputazione dell'OSI di essere pragmatica ed accessibile la ha aiutata ad affrontare le minacce agli interessi della community prima di raggiungere il punto di diventare crisi visibili. ad esempio, OSI ha lavorato assieme alla Free Software Foundation per convincere le entità antitrust nel richiedere delle licenze open source-friendly dei brevetti CPTN (TODO:).</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
