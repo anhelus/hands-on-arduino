@@ -1,4 +1,12 @@
-# TODO: estendere
+# La IDE di Arduino
+
+## Cosa è una IDE?
+
+*IDE* è un acronimo che sta per *Integrated Development Environment*, traducibile in italiano con un (orribile) *ambiente di sviluppo integrato*.
+
+
+
+L'acronimo *IDE*
 
 L'acronimo _IDE_ sta per _Integrated Development Environment_, e rappresenta, in informatica, il vero e proprio _ambiente di sviluppo_.
 
