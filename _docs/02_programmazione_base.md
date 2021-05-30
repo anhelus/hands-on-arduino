@@ -1,12 +1,26 @@
 # Le basi della programmazione
 
+Partiamo da quella che è la domanda che probabilmente molti di voi si staranno facendo, ovvero: *come iniziare a programmare Arduino?*
+
+Beh, la risposta non è così semplice. Avremo bisogno, nell'ordine, di:
+
+1. un editor che ci permetta di scrivere il codice;
+2. uno strumento per comunicare con la scheda;
+3. uno strumento che ci dia in output gli output dati dalla scheda.
+
+Per nostra fortuna, questo strumento *esiste*, ed è anche disponibile gratuitamente: si tratta infatti della IDE di Arduino. Scopriamola insieme.
+
 ## Cosa è una IDE?
 
-Ok, partiamo subito rispondendo alla domanda che sorge quasi 'spontanea': *cosa si intende per IDE?*
+Prima di procedere, rispondiamo subito ad una domanda: *cosa è una IDE?*
 
-IDE è un acronimo inglese, che sta per *Integrated Development Environment*. Come molti dei termini anglofoni, non è disponibile una traduzione 'letterale': si potrebbe approssimare con *ambiente di sviluppo integrato*, ma non renderebbe completamente l'idea. Una IDE è uno strumento indispensabile nella vita di qualsiasi sviluppatore. Può essere visto come un editor di testo 'potenziato', il quale mette a disposizione un insieme di tool per semplificare la scrittura e la verifica del codice, oltre che l'integrazione di librerie esterne e la compilazione dello stesso. Fermarsi qui sarebbe però riduttivo: esistono, infatti, delle IDE in grado di supportare un gran numero di linguaggi di programmazione, oltre che di offrire caratteristiche avanzate in termini di personalizzazione e verifica della qualità del codice scritto.
+Il concetto di IDE ci viene spiegato dall'acronimo cui si riferisce, ovvero *Integrated Development Environment*, che, traducendo dall'inglese, significa *Ambiente di Sviluppo Integrato*. 
+
+Le IDE sono gli strumenti che accompagneranno il nostro percorso da sviluppatore, e non solo in ambito Arduino. Molto spesso, infatti, offrono delle feature imprescindibili, come il *syntax highlighting* (ovvero, quei simpatici effetti che ci permettono di evidenziare determinate parti del nostro codice), aiuti al debugging ed al test del codice, oppure ancora dei suggerimenti che possono aiutare a velocizzare la nostra esperienza di programmazione. Per farvi un esempio, questa intera guida è stata scritta usando una IDE (nello specifico, Visual Studio Code).
 
 ## La IDE di Arduino
+
+Una volta chiarito cosa sia una IDE, possiamo passare a descrivere 
 
 In questo vasto ecosistema di tool per lo sviluppo si inserisce la [IDE di Arduino](https://www.arduino.cc/en/Main/Software), rilasciata anch'essa sotto licenza open source, ed utilizzata per lo sviluppo dei programmi (in gergo, `sketch`) che saranno eseguiti sulla board. 
 
